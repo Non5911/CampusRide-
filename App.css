@@ -1,0 +1,236 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+/* Navbar */
+.navbar {
+  background: #1e293b;
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.navbar-brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon { font-size: 1.8rem; }
+.brand-name { color: white; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
+.navbar-menu { display: flex; align-items: center; gap: 1rem; }
+.navbar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.navbar-menu a:hover { color: white; }
+.user-info { display: flex; align-items: center; gap: 8px; margin-left: 1rem; padding-left: 1rem; border-left: 1px solid #334155; }
+.user-name { color: white; font-size: 0.9rem; font-weight: 500; }
+.role-badge { padding: 2px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 600; text-transform: capitalize; }
+.role-badge.passenger { background: #dbeafe; color: #1d4ed8; }
+.role-badge.driver { background: #dcfce7; color: #15803d; }
+.logout-btn { background: #ef4444; color: white; border: none; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
+.logout-btn:hover { background: #dc2626; }
+
+/* Layout */
+.page-container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+.page-header h1 { font-size: 1.75rem; font-weight: 700; color: #1e293b; }
+
+/* Cards */
+.card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04); margin-bottom: 1.5rem; }
+.card h2 { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 1rem; }
+
+/* Auth */
+.auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); padding: 2rem; }
+.auth-card { background: white; border-radius: 20px; padding: 2.5rem; width: 100%; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.auth-card-wide { max-width: 600px; }
+.auth-header { text-align: center; margin-bottom: 2rem; }
+.auth-logo { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+.auth-header h1 { font-size: 1.75rem; font-weight: 700; color: #1e293b; }
+.auth-header p { color: #64748b; margin-top: 0.25rem; }
+.auth-form { display: flex; flex-direction: column; gap: 1rem; }
+.auth-footer { text-align: center; margin-top: 1.5rem; color: #64748b; font-size: 0.9rem; }
+.auth-footer a { color: #6366f1; font-weight: 600; text-decoration: none; }
+
+/* Forms */
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.875rem; font-weight: 600; color: #374151; }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 0.65rem 1rem; border: 2px solid #e2e8f0; border-radius: 10px;
+  font-size: 0.9rem; color: #1e293b; transition: border-color 0.2s; outline: none; background: white;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #6366f1; }
+.form-group input:disabled { background: #f8fafc; color: #94a3b8; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* Buttons */
+.btn-primary { background: #6366f1; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-primary:hover:not(:disabled) { background: #4f46e5; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-success { background: #10b981; color: white; border: none; padding: 0.65rem 1.2rem; border-radius: 10px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-success:hover { background: #059669; }
+.btn-danger { background: #ef4444; color: white; border: none; padding: 0.65rem 1.2rem; border-radius: 10px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-danger:hover { background: #dc2626; }
+
+/* Role selector */
+.role-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.5rem; }
+.role-btn { padding: 0.75rem; border: 2px solid #e2e8f0; background: white; border-radius: 10px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: #64748b; }
+.role-btn.active { border-color: #6366f1; background: #eef2ff; color: #6366f1; }
+
+/* Driver fields */
+.driver-fields { background: #f8fafc; border-radius: 12px; padding: 1rem; border: 1px solid #e2e8f0; }
+.driver-fields h3 { font-size: 0.9rem; font-weight: 600; color: #64748b; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Stats grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-card { background: white; border-radius: 16px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.stat-icon { font-size: 2rem; }
+.stat-card div { display: flex; flex-direction: column; }
+.stat-card strong { font-size: 1.4rem; font-weight: 700; color: #1e293b; line-height: 1; }
+.stat-card span { font-size: 0.8rem; color: #64748b; margin-top: 2px; }
+
+/* Layouts */
+.passenger-layout, .driver-layout { display: grid; grid-template-columns: 400px 1fr; gap: 1.5rem; align-items: start; }
+.left-panel, .right-panel { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Availability button */
+.availability-btn { padding: 0.65rem 1.5rem; border: none; border-radius: 99px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.availability-btn.online { background: #dcfce7; color: #15803d; }
+.availability-btn.offline { background: #fee2e2; color: #dc2626; }
+
+/* Ride status */
+.ride-status-badge { display: inline-block; padding: 4px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+.ride-details { display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+.ride-detail-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+.ride-detail-item span { color: #64748b; }
+.ride-detail-item strong { color: #1e293b; }
+.ride-actions { display: flex; gap: 0.75rem; margin-top: 1rem; }
+
+/* Driver info */
+.driver-info-card { background: #f8fafc; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+.driver-info-card h3 { font-size: 0.85rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+.driver-info-card p { font-size: 0.9rem; color: #1e293b; margin: 0.25rem 0; }
+
+/* Ride request cards */
+.ride-request-card { border: 2px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 0.75rem; transition: border-color 0.2s; }
+.ride-request-card:hover { border-color: #6366f1; }
+.request-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.fare-tag { background: #dcfce7; color: #15803d; padding: 2px 10px; border-radius: 99px; font-weight: 700; font-size: 0.9rem; }
+.request-route { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #374151; margin: 0.5rem 0; flex-wrap: wrap; }
+.route-arrow { color: #94a3b8; }
+.request-meta { display: flex; gap: 1rem; font-size: 0.8rem; color: #64748b; margin: 0.5rem 0; }
+.request-actions { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+
+/* Payment options */
+.payment-options { display: flex; gap: 0.75rem; }
+.payment-btn { flex: 1; padding: 0.6rem; border: 2px solid #e2e8f0; background: white; border-radius: 10px; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: #64748b; }
+.payment-btn.active { border-color: #6366f1; background: #eef2ff; color: #6366f1; }
+
+/* Fare estimate */
+.fare-estimate { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: #f0fdf4; border-radius: 10px; border: 1px solid #bbf7d0; }
+.fare-estimate span { color: #15803d; font-size: 0.9rem; }
+.fare-estimate strong { color: #15803d; font-size: 1.2rem; font-weight: 700; }
+
+/* Schedule toggle */
+.schedule-toggle label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; font-weight: 500; color: #374151; }
+.schedule-toggle input[type="checkbox"] { width: 16px; height: 16px; accent-color: #6366f1; }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 1rem; }
+.modal { max-width: 400px; width: 100%; }
+.modal h2 { margin-bottom: 1rem; }
+
+/* Payment modal */
+.payment-summary { text-align: center; }
+.fare-display { font-size: 3rem; font-weight: 800; color: #1e293b; margin: 1rem 0; }
+.upi-payment { margin: 1rem 0; }
+.qr-placeholder { display: flex; justify-content: center; margin: 1rem 0; }
+.qr-code { border: 3px solid #1e293b; border-radius: 12px; padding: 1.5rem 2rem; text-align: center; }
+.qr-code p { font-size: 0.9rem; color: #374151; margin: 0.25rem 0; }
+.qr-amount { font-size: 1.5rem; font-weight: 700; color: #6366f1; margin-top: 0.5rem !important; }
+.cash-info { font-size: 1.1rem; color: #374151; margin: 1rem 0; }
+
+/* Star rating */
+.star-rating { display: flex; gap: 0.5rem; justify-content: center; margin: 1rem 0; }
+.star-btn { background: none; border: none; font-size: 2rem; cursor: pointer; color: #e2e8f0; transition: color 0.2s; }
+.star-btn.active { color: #f59e0b; }
+
+/* History */
+.rides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+.ride-history-card { }
+.ride-history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.status-badge { padding: 3px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; color: white; text-transform: capitalize; }
+.ride-date { font-size: 0.8rem; color: #94a3b8; }
+.ride-route { padding: 0.75rem 0; display: flex; flex-direction: column; gap: 0.25rem; }
+.route-point { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: #374151; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.pickup-dot { background: #10b981; }
+.drop-dot { background: #ef4444; }
+.route-line { width: 2px; height: 20px; background: #e2e8f0; margin-left: 4px; }
+.ride-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: #64748b; padding-top: 0.75rem; border-top: 1px solid #f1f5f9; }
+.ride-person-info { font-size: 0.85rem; color: #64748b; margin-top: 0.5rem; }
+
+/* Filter tabs */
+.filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-tab { padding: 0.4rem 1rem; border: 2px solid #e2e8f0; background: white; border-radius: 99px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: #64748b; }
+.filter-tab.active { border-color: #6366f1; background: #eef2ff; color: #6366f1; }
+
+/* Drivers list */
+.driver-card { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; }
+.driver-avatar { font-size: 2rem; }
+.driver-details { flex: 1; display: flex; flex-direction: column; }
+.driver-details strong { font-size: 0.95rem; color: #1e293b; }
+.driver-details span { font-size: 0.8rem; color: #64748b; }
+.online-dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; }
+
+/* Profile */
+.profile-layout { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; align-items: start; }
+.profile-card { text-align: center; }
+.profile-avatar { font-size: 4rem; margin-bottom: 0.5rem; }
+.profile-card h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+.profile-stats { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
+.profile-stats div { display: flex; flex-direction: column; align-items: center; }
+.profile-stats strong { font-size: 1.5rem; font-weight: 700; color: #1e293b; }
+.profile-stats span { font-size: 0.8rem; color: #64748b; }
+
+/* History items */
+.history-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; }
+.history-item div { display: flex; flex-direction: column; }
+.history-item strong { font-size: 0.9rem; color: #1e293b; }
+.history-item span { font-size: 0.8rem; color: #64748b; }
+
+/* Ratings */
+.rating-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; }
+.rating-item div { display: flex; flex-direction: column; }
+.rating-item strong { font-size: 0.9rem; color: #1e293b; }
+.rating-item span { font-size: 0.8rem; color: #64748b; }
+.stars { color: #f59e0b; font-size: 1rem; letter-spacing: 1px; }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 3rem 1rem; }
+.empty-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.empty-state h3 { font-size: 1.1rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+.empty-state p { color: #94a3b8; font-size: 0.9rem; }
+.no-data { color: #94a3b8; text-align: center; padding: 2rem; font-size: 0.9rem; }
+
+/* Scheduled rides */
+.scheduled-time { font-size: 1rem; font-weight: 600; color: #6366f1; margin-bottom: 1rem; }
+
+/* Loading */
+.loading-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.spinner { width: 40px; height: 40px; border: 4px solid #e2e8f0; border-top-color: #6366f1; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .passenger-layout, .driver-layout, .profile-layout { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .navbar-menu a { display: none; }
+}
+@media (max-width: 600px) {
+  .page-container { padding: 1rem; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
